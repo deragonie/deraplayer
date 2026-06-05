@@ -68,6 +68,11 @@ function antCancion() {
     botonPlayPause.textContent = "pause";
 };
 
+cancion.addEventListener('loadeddata', function(){
+    progreso.max = cancion.duration;
+    progreso.value = 0;
+})
+
 cancion.addEventListener('timeupdate', function(){
     if (!cancion.paused) {
         progreso.value = cancion.currentTime;
@@ -77,5 +82,7 @@ cancion.addEventListener('timeupdate', function(){
 progreso.addEventListener('input', function(){
     cancion.currentTime = progreso.value;
 });
+
+cancion.addEventListener('ended', sigCancion);
 
 inicializarReproductor();
