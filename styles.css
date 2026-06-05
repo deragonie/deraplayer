@@ -1,26 +1,128 @@
 * {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
+  font-family: 'Pixelify Sans', monospace;
 }
 
-
 body {
-  margin: 0;
-  width: 100vw;
+  background: transparent;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 100vh;
+}
 
-  background: white;
-  user-select: none;
-  -webkit-app-region: drag;
+img, .cassette-bg, .cassette-frame, .ruedita-izq, .ruedita-der, .prev, .play, .next {
+  image-rendering: pixelated;
 }
 
 .app {
-  padding: 16px;
+  position: relative;
+  width: 500px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-button,
-input,
-textarea,
-select {
-  -webkit-app-region: no-drag;
+.cassette-body {
+  position: relative;
+  width: 500px;
+  height: 400px; 
+}
+
+.cassette-bg {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: url('assets/images/fondo.png') no-repeat top left;
+  z-index: 1;
+}
+
+.ruedita-izq, .ruedita-der {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: url('assets/images/ruedita.png') no-repeat top left;
+  z-index: 2;
+}
+
+.ruedita-izq {
+  transform: scaleX(-1);
+  transform-origin: 250px center;
+}
+
+.titulo-cancion {
+  position: absolute;
+  top: 105px;        
+  left: 110px;
+  font-size: 20px;   
+  color: #1a4a75; 
+  text-transform: uppercase;
+  z-index: 3;
+  width: 280px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: center;
+}
+
+.cassette-frame {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: url('assets/images/cuerpo.png') no-repeat top left;
+  pointer-events: none; 
+  z-index: 4;
+}
+
+.controllers {
+  position: absolute;
+  display: flex;
+  flex-direction: column; 
+  align-items: center;
+  
+  bottom: 48px;       
+  left: 50%;
+  transform: translateX(-50%);
+  
+  width: 360px;
+  z-index: 5;
+}
+
+.botones-fila {
+  display: flex;
+  gap: 22px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 13px;
+}
+
+.prev, .play, .next {
+  border: none;
+  background-color: transparent;
   cursor: pointer;
+  outline: none;
+  font-size: 0;
+  width: 56px; 
+  height: 56px;
+}
+
+.prev:active, .play:active, .next:active {
+  transform: translateY(1px); 
+}
+
+.prev { background: url('assets/images/ant_unpressed.png') no-repeat center/contain; }
+.prev:active { background-image: url('assets/images/ant_pressed.png'); }
+
+.play { background: url('assets/images/play_unpressed.png') no-repeat center/contain; }
+.play.playing { background-image: url('assets/images/play_pressed.png'); }
+
+.next { background: url('assets/images/next_unpressed.png') no-repeat center/contain; }
+.next:active { background-image: url('assets/images/next_pressed.png'); }
+
+.progreso-retro {
+  width: 100%; 
+  cursor: pointer;
+  accent-color: #2b6299; 
 }

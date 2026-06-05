@@ -36,15 +36,13 @@ function playPause() {
     if (playlist.length===0) return;
     if (cancion.paused) {
         reproducirCancion();
-        botonPlayPause.textContent = "pause";
     } else {
         pausarCancion();
-        botonPlayPause.textContent = "play";
     }
 };
 
 function reproducirCancion() {
-    cancion.play()  ;
+    cancion.play();
 };
 
 function pausarCancion(){
@@ -58,14 +56,12 @@ function sigCancion() {
     index = (index+1)%playlist.length;
     actInfoCancion();
     reproducirCancion();
-    botonPlayPause.textContent = "pause";
 };
 
 function antCancion() {
     index = (index-1+playlist.length)%playlist.length;
     actInfoCancion();
     reproducirCancion();
-    botonPlayPause.textContent = "pause";
 };
 
 cancion.addEventListener('loadeddata', function(){

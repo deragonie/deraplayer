@@ -3,21 +3,35 @@
   <head>
     <meta charset="UTF-8" />
     <title>cassette</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" href="styles.css" />
   </head>
 
   <body>
     <div class="app">
-        <h1>titulo</h1>
-       <audio id="cancion"> <source src="" type="audio/mp3"/> </audio> 
-      <input type="range" value="0" id="progress"/>
-      
-      <div class="controllers">
-        <button class="prev">prev</button>
-        <button class="play">play</button>
-        <button class="next">next</button>
-      </div>
+        <div class="cassette-body">
+            <div class="cassette-bg"></div>
+            <div class="ruedita-izq"></div>
+            <div class="ruedita-der"></div>
+
+            <h1 class="titulo-cancion">cargando...</h1>
+
+            <div class="cassette-frame"></div>
+        </div>
+
+        <div class="controllers">
+            <input type="range" value="0" id="progress" class="progreso-retro"/>
+            <div class="botones-fila"> 
+                <button class="prev"></button>
+                <button class="play"></button>
+                <button class="next"></button>
+            </div> 
+        </div>
     </div>
+
+    <audio id="cancion"></audio>
 
     <script src="script.js"></script>
   </body>
